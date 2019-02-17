@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person';
 
 
@@ -39,15 +39,9 @@ class App extends React.Component {
     };
 
     render() { 
-        const style = {
-            backgroundColor: 'mediumseagreen',
-            color: 'white',
-            font: 'inherit',
-            border: '2px solid yellow',
-            padding: '8px'
-        };
-
         let persons = null;
+        
+        let btnClass = '';
 
         if (this.state.showPersons) {
             persons = (
@@ -62,30 +56,28 @@ class App extends React.Component {
                     })}
                 </div>
             );
-            style.backgroundColor = 'salmon';
+            btnClass = classes.Indian
         };
 
-        const classes = [];
+        const assignedClasses = [];
         if (this.state.persons.length <= 2) {
-            classes.push('indianred');
+            assignedClasses.push(classes.indianred);
         }
         if (this.state.persons.length <= 1) {
-            classes.push('italic');
+            assignedClasses.push(classes.italic);
         }
 
-
         return (
-            
-                <div className="App">
-                    <h1>APP</h1>
-                    <p className={classes.join(' ')}>Dynamically Style</p>
-                    {/* bind(this, 'argument' is recommended over () => this.switchNameHandler('argument)) method */}
-                    <button 
-                        style={style}
-                        onClick={this.togglePersonsHandler} >Toggle Me Now!
-                    </button>
-                    {persons}
-                </div>
+            <div className={classes.App}>
+                <h1>APP</h1>
+                <p className={assignedClasses.join(' ')}>Dynamically Style</p>
+                {/* bind(this, 'argument' is recommended over () => this.switchNameHandler('argument)) method */}
+                <button
+                    className={btnClass}
+                    onClick={this.togglePersonsHandler} >Toggle Me Now!
+                </button>
+                {persons}
+            </div>
             
         );
     };

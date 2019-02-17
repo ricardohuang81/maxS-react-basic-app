@@ -10,3 +10,25 @@
 .italic {
   font-style: italic;
 }
+
+.App button {
+  border: 1px solid hotpink;
+  padding: 16px;
+  background-color: mediumseagreen;
+  font: inherit;
+  cursor: pointer;
+}
+
+.App button:hover {
+  background-color: greenyellow;
+  color: slategrey;
+}
+
+.App button.Indian {
+  background-color: indianred;
+}
+
+.App button.Indian:hover {
+  background-color: lightsalmon;
+  color: black;
+}
