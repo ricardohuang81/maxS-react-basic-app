@@ -1,6 +1,7 @@
 import React from 'react';
-import Person from './Person';
 import './App.css';
+import Person from './Person';
+
 
 class App extends React.Component {
     state = {
@@ -39,11 +40,11 @@ class App extends React.Component {
 
     render() { 
         const style = {
-            backgroundColor: 'white',
+            backgroundColor: 'mediumseagreen',
+            color: 'white',
             font: 'inherit',
-            border: '2px solid darkturquoise',
-            padding: '8px',
-            cursor: 'pointer'
+            border: '2px solid yellow',
+            padding: '8px'
         };
 
         let persons = null;
@@ -53,27 +54,39 @@ class App extends React.Component {
                 <div>
                     {this.state.persons.map((person, index) => {
                         return <Person 
-                                    click={() => this.deletePersonHander(index)}
-                                    name={person.name} 
-                                    age={person.age}
-                                    key={person.id}
-                                    changed={(event) => this.nameChangedHandler(event, person.id)}
-                                />
+                            click={() => this.deletePersonHander(index)}
+                            name={person.name} 
+                            age={person.age}
+                            key={person.id}
+                            changed={(event) => this.nameChangedHandler(event, person.id)} />
                     })}
                 </div>
             );
+            style.backgroundColor = 'salmon';
         };
 
+        const classes = [];
+        if (this.state.persons.length <= 2) {
+            classes.push('indianred');
+        }
+        if (this.state.persons.length <= 1) {
+            classes.push('italic');
+        }
+
+
         return (
-            <div className="App">
-                <h1>APP</h1>
-                {/* bind(this, 'argument' is recommended over () => this.switchNameHandler('argument)) method */}
-                <button 
-                    style={style}
-                    onClick={this.togglePersonsHandler} >Toggle Me Now!
-                </button>
-                {persons}
-            </div>
+            
+                <div className="App">
+                    <h1>APP</h1>
+                    <p className={classes.join(' ')}>Dynamically Style</p>
+                    {/* bind(this, 'argument' is recommended over () => this.switchNameHandler('argument)) method */}
+                    <button 
+                        style={style}
+                        onClick={this.togglePersonsHandler} >Toggle Me Now!
+                    </button>
+                    {persons}
+                </div>
+            
         );
     };
 }
