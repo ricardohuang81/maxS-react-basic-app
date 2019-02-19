@@ -1,8 +1,3 @@
-.App {
-  text-align: center;
-  font-family: monospace;
-}
-
 .indianred {
   color: indianred;
 }
@@ -11,7 +6,7 @@
   font-style: italic;
 }
 
-.App button {
+.Cockpit button {
   border: 1px solid hotpink;
   padding: 16px;
   background-color: mediumseagreen;
@@ -19,16 +14,16 @@
   cursor: pointer;
 }
 
-.App button:hover {
+.Cockpit button:hover {
   background-color: greenyellow;
   color: slategrey;
 }
 
-.App button.Indian {
+.Cockpit button.Indian {
   background-color: indianred;
 }
 
-.App button.Indian:hover {
+.Cockpit button.Indian:hover {
   background-color: lightsalmon;
   color: black;
 }
