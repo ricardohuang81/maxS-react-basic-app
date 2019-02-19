@@ -1,16 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 import classes from './Cockpit.css';
+import AuthContext from '../../context/auth-context';
 
 const cockpit = (props) => {
+
+    const toggleButtonRef = useRef(null);
+
+    const authContext = useContext(AuthContext);
+
+    console.log(authContext.authenticated);
+
     useEffect(() => {
         console.log('[Cockpit.js] useEffect');
-        const timer = setTimeout(() => {
-            alert('Saved data to cloud');
-        }, 1000);
-        return () => {
-            clearTimeout(timer);
-            console.log('[Cockpit.js] cleanup work in useEffect');
-        };
+        // HTTP request...
+        // const timer = setTimeout(() => {
+        //     alert('Saved data to cloud');
+        // }, 1000);
+
+        // return () => {
+        //     clearTimeout(timer);
+        //     console.log('[Cockpit.js] cleanup work in useEffect');
+        // };
+
+        toggleButtonRef.current.click();
+
     }, [] );
 
     useEffect(() => {
@@ -40,9 +53,11 @@ const cockpit = (props) => {
             <p className={assignedClasses.join(' ')}>Dynamically Style</p>
             {/* bind(this, 'argument' is recommended over () => this.switchNameHandler('argument)) method */}
             <button
+                ref={toggleButtonRef}
                 className={btnClass}
                 onClick={props.clicked} >Toggle Me Now!
             </button>
+            <button onClick={authContext.login}>Log in</button>
         </div>
     )
 }

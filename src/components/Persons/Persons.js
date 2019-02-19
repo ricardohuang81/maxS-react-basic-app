@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ErrorBoundary from '../../ErrorBoundary/ErrorBoundary';
 import Person from './Person/Person';
 
+
 class Persons extends Component {
     // static getDerivedStateFromProps(props, state) {
     //     console.log('[Persons.js] getDerivedStateFromProps');
@@ -49,7 +50,7 @@ class Persons extends Component {
                 </ErrorBoundary>
             );
         });
-    }
+    };
 };
 
 export default Persons;
