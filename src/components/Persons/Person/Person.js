@@ -24,18 +24,17 @@ class Person extends Component {
         return (
             <Aux>
                 {this.context.authenticated ? (
-                    <p>Authenticated!</p> 
+                    <p>Authenticated!</p>
                 ) : (
                     <p>Please log in!</p>
                 )}
-                
                 <p onClick={this.props.click}>I'm {this.props.name} and {this.props.age} years young...</p>
                 <p>{this.props.children}</p>
                 <input
                     ref={this.inputElementReference}
-                    type="text" 
-                    value={this.props.name} 
-                    onChange={this.props.changed} 
+                    type="text"
+                    value={this.props.name}
+                    onChange={this.props.changed}
                 />
             </Aux>
         );

@@ -1,3 +1,5 @@
+# Basic React with form input, toggle, remove, dynamic styling (CSS Modules) functionality making use of React Context, higher-order components, and error boundaries
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
